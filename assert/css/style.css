@@ -1,6 +1,9 @@
 body{
     background: url("assert/img/background.svg") no-repeat;
-    background-size: cover;
+    background-size: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .sec-1{
     height: 100vh;
@@ -332,6 +335,7 @@ body{
 #getDataSection{
     height: 100vh;
     justify-content: center;
+    display: none;
     padding: 70px 10% 0;
     flex-direction: column;
 
