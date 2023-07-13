@@ -1,9 +1,6 @@
 body{
-    background: url("assert/img/background.svg") no-repeat;
-    background-size: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: url("assert/img/background.svg");
+    background-size: 100%;
 }
 .sec-1{
     height: 100vh;
