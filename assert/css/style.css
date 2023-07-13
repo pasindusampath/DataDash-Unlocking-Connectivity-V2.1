@@ -94,6 +94,9 @@ body{
 .view{
     display: flex;
 }
+.view2{
+    display: block !important;
+}
 .wrapper{
     width: 90%;
     margin: 0 auto;
@@ -328,20 +331,31 @@ body{
 }
 #getDataSection{
     height: 100vh;
-    display: none;
     justify-content: center;
     padding: 70px 10% 0;
     flex-direction: column;
 
 }
 
-
-@media screen and (max-width: 64rem){
+@media screen and (max-width: 750px){
     .col{
-        width: calc(33.333333% - 2rem);
+        width: calc(47% - 2rem)
+    }
+    #getMobileNo,#confirmOtp,#getDataSection{
+        height: max-content;
     }
 }
 
+@media screen and (max-width: 450px){
+    .col{
+        width: calc(100% - 2rem)
+    }
+    #getMobileNo,#confirmOtp,#getDataSection{
+        height: max-content;
+    }
+}
+
+/*
 @media screen and (max-width: 48rem){
     .col{
         width: calc(50% - 2rem);
@@ -353,4 +367,4 @@ body{
         width: 100%;
         margin: 0 0 2rem 0;
     }
-}
+}*/
