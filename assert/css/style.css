@@ -328,7 +328,7 @@ body{
 }
 #getDataSection{
     height: 100vh;
-    display: flex;
+    display: none;
     justify-content: center;
     padding: 70px 10% 0;
     flex-direction: column;
