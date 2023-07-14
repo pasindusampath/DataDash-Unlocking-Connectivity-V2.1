@@ -154,6 +154,8 @@ class Main {
         };
 
         $.ajax(settings).done(function (response) {
+            $('.connection-details .mycontainer').empty();
+            $('.connection-details .mycontainer').append($(`<p style="text-align: center">Connection Details</p><p>----------------------------------------</p>`));
             let parse = JSON.parse(response);
             let allPb = parse.data.all_pb;
             let profileDetails = parse.data.profileDetails;
@@ -171,6 +173,8 @@ class Main {
             $('.connection-details .mycontainer').append($(puk))
 
 
+            $('.package-details .mycontainer').empty();
+            $('.package-details .mycontainer').append($(`<p style="text-align: center">Package Details</p><p>----------------------------------------</p>`));
             let currentBal = parse.data.currBal;
             let main =`<p>MAIN BALANCE : ${currentBal.main}</p><p>&nbsp;</p>`;
             let loan =`<p>LOAN :  ${currentBal.loan}</p><p>&nbsp;</p>`;
