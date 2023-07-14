@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="theme-color" content="black">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Title</title>
+    <title>Data Dash</title>
+    <link rel="icon" href="assert/img/logo.svg" type="image/svg">
     <link rel="stylesheet" href="assert/css/style.css">
     <style>
         section {
@@ -13,28 +15,31 @@
     </style>
 </head>
 <body>
-<section id="getMobileNo" class="view mainSection sec-1">
+<section class="loading">
+    <div class="outer-circle">
+        <div class="inner-circle"></div>
+    </div>
+</section>
+<section id="getMobileNo" class="mainSection sec-1">
     <div class="login">
-        <div>
+        <div class="v2">
             <div>
                 <label for="mobileNo">Mobile No</label>
                 <input class="input" id="mobileNo" type="text" name="mobileNo">
             </div>
             <button id="getOtp">GET OTP</button>
         </div>
-
     </div>
 </section>
 <section id="confirmOtp" class="mainSection sec-1">
-    <div>
-        <div>
+    <div class="login">
+        <div class="v2">
             <div>
                 <label for="password">OTP</label>
                 <input class="input" id="password" type="number" name="password">
             </div>
             <button id="submitOtp">LOGIN</button>
         </div>
-
     </div>
 </section>
 <section id="myDetails">
@@ -165,7 +170,7 @@
                 <div class="back">
                     <div class="inner">
                         <a>
-                            <button>Coming Soon</button>
+                            <button id="btn50mb">GET DATA</button>
                         </a>
                     </div>
                 </div>
@@ -182,7 +187,7 @@
                 <div class="back">
                     <div class="inner">
                         <a>
-                            <button>Coming Soon</button>
+                            <button id="btn25mb">GET DATA</button>
                         </a>
                     </div>
                 </div>
@@ -216,7 +221,7 @@
                 <div class="back">
                     <div class="inner">
                         <a>
-                            <button>Coming Soon</button>
+                            <button id="btn10min">Click Here</button>
                         </a>
                     </div>
                 </div>
@@ -224,6 +229,11 @@
         </div>
     </div>
 </section>
+<footer>
+    <div style="position: relative">
+        <div class="credit"> Copyright © 2023 All rights reserved || Developed By: Pasindu Sampath</div>
+    </div>
+</footer>
 <script src="lib/jquery-3.6.4.min.js"></script>
 <script src="assert/script/main.js"></script>
 <script src="lib/gsap/gsap-public/minified/gsap.min.js"></script>

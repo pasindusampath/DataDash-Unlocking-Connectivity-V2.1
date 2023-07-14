@@ -1,6 +1,7 @@
 body{
     background: url("assert/img/background.svg");
     background-size: 100%;
+    margin: 0;
 }
 .sec-1{
     height: 100vh;
@@ -8,7 +9,8 @@ body{
     align-items: center;
     justify-content: center;
 }
-.sec-1>div{
+.sec-1>.login{
+    position: relative;
     height: 500px;
     width: 400px;
     border: 2px solid #0E8388;
@@ -19,12 +21,12 @@ body{
     background-color: rgba(0, 0, 0, 0.35);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
-.sec-1>div>div,.sec-1>div>div>div{
+.sec-1>.login>.v2,.sec-1>.login>.v2>div{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.sec-1>div>div{
+.sec-1>.login>.v2{
     height: 150px;
     justify-content: space-between;
 }
@@ -370,9 +372,8 @@ body{
     right: 0;
     margin: auto;
     z-index: -1;
-    opacity: 20%;
+    opacity: 50%;
 }
-
 #myDetails .ell, #ai {
     fill: none;
 }
@@ -398,7 +399,6 @@ body{
 /*#myDetails div::-webkit-scrollbar{
     width: 0;
 }*/
-
 #myDetails div::-webkit-scrollbar {
   width: 5px;
   height: 5px;
@@ -432,10 +432,6 @@ body{
 #myDetails div::-webkit-scrollbar-corner {
   background: transparent;
 }
-
-
-
-
 @media screen and (max-width: 750px){
     .col{
         width: calc(47% - 2rem)
@@ -443,12 +439,20 @@ body{
     #getMobileNo,#confirmOtp,#getDataSection{
         height: max-content;
     }
+    #myDetails{
+        height: max-content;
+    }
     .all-details{
         flex-direction: column;
-        height: 84rem;
+        height: unset;
+    }
+    .package-details{
+        margin-top: 187px;
+    }
+    .sec-1{
+        margin-top: 25%;
     }
 }
-
 @media screen and (max-width: 450px){
     .col{
         width: calc(100% - 2rem)
@@ -457,7 +461,6 @@ body{
         height: max-content;
     }
 }
-
 /*
 @media screen and (max-width: 48rem){
     .col{
@@ -471,7 +474,6 @@ body{
         margin: 0 0 2rem 0;
     }
 }*/
-
 .yellow {color: #ff0;}
 .green {color: #0f0;}
 .white {color: #fff;}
@@ -479,7 +481,6 @@ body{
 .red {color: #f00;}
 .blue {color: #00f;}
 .doblue {background-color: blue; padding-top: .5vmin;}
-
 .blinking {animation: blink 1s steps(1, end) infinite;}
 @keyframes blink {
     0% {opacity: 0;}
@@ -493,8 +494,6 @@ body{
     font-style: normal;
 
 }
-
-
 .mycontainer {
     font-family: 'modesevenregular';
     color: #6bee63;
@@ -517,14 +516,12 @@ body{
     margin-right: 10px;
     display: inline-block;
 }
-
 .progress-loader {
     width: 300px;
     background: rgba(236, 236, 238, 0.253);
     height: 3px;
     border-radius: 7px;
 }
-
 .progress {
     content: '';
     width: 1px;
@@ -555,8 +552,6 @@ body{
         width: 100%;
     }
 }
-
-
 p {
     margin-block-start: 0;
     margin-block-end: 0;
@@ -567,3 +562,209 @@ p {
 }
 .myd {/*position: relative; top: -1.7vmin; scale: 1 2;*/}
 
+.loading{
+    display: grid;
+    place-items: center;
+    background: black;
+    width: 100vw;
+    height: 100vh;
+}
+.outer-circle {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    position: relative;
+    display: grid;
+    place-items: center;
+    border: 1px solid #1f2937;
+}
+.outer-circle::before {
+     content: "Loading...";
+     color: white;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     position: absolute;
+     font-size: 20px;
+     text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #0fa,
+     0 0 40px #0fa, 0 0 80px #0fa, 0 0 90px #0fa, 0 0 100px #0fa,
+     0 0 150px #0fa;
+     animation: opacity 2s infinite ease-out both;
+}
+
+.inner-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: relative;
+    animation: rotate 2.5s linear infinite;
+}
+.inner-circle:before,
+.inner-circle:after {
+     content: "";
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+     border-radius: 50%;
+     width: 32px;
+     height: 32px;
+     animation: pulse 2s ease-out infinite both;
+ }
+
+.inner-circle:before {
+     right: -16px;
+ }
+
+.inner-circle:after {
+     left: -16px;
+ }
+
+
+@keyframes opacity {
+    0% {
+        opacity: 0.8;
+    }
+    40% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0.8;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 48px #0fa, 0 0 24px #0fa, 0 0 12px #0fa, inset 0 0 16px #0fa,
+        inset 0 0 12px #0fa, inset 0 0 8px #0fa;
+    }
+    40% {
+        background: white;
+        box-shadow: 0 0 96px #0fa, 0 0 48px #0fa, 0 0 24px #0fa, inset 0 0 24px #0fa,
+        inset 0 0 16px #0fa, inset 0 0 12px #0fa;
+    }
+    80% {
+        background: black;
+        box-shadow: 0 0 12px #0fa;
+    }
+    100% {
+        box-shadow: 0 0 48px #0fa, 0 0 24px #0fa, 0 0 12px #0fa, inset 0 0 16px #0fa,
+        inset 0 0 12px #0fa, inset 0 0 8px #0fa;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.outer-circle {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    position: relative;
+    display: grid;
+    place-items: center;
+    border: 1px solid #1f2937;
+}
+
+.outer-circle::before {
+     content: "Loading...";
+     color: white;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     position: absolute;
+     font-size: 20px;
+     text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #0fa,
+     0 0 40px #0fa, 0 0 80px #0fa, 0 0 90px #0fa, 0 0 100px #0fa,
+     0 0 150px #0fa;
+     animation: opacity 2s infinite ease-out both;
+ }
+
+
+.inner-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: relative;
+    animation: rotate 2.5s linear infinite;
+}
+
+.inner-circle::before,
+.inner-circle::after {
+     content: "";
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+     border-radius: 50%;
+     width: 32px;
+     height: 32px;
+     animation: pulse 2s ease-out infinite both;
+ }
+
+.inner-circle:before {
+     right: -16px;
+ }
+.inner-circle:after {
+     left: -16px;
+ }
+.credit{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #ffffff;
+    font-size: 12px;
+    text-shadow: 0px 0px 5px #bdfcbd;
+}
+
+@keyframes opacity {
+    0% {
+        opacity: 0.8;
+    }
+    40% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0.8;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 48px #0fa, 0 0 24px #0fa, 0 0 12px #0fa, inset 0 0 16px #0fa,
+        inset 0 0 12px #0fa, inset 0 0 8px #0fa;
+    }
+    40% {
+        background: white;
+        box-shadow: 0 0 96px #0fa, 0 0 48px #0fa, 0 0 24px #0fa, inset 0 0 24px #0fa,
+        inset 0 0 16px #0fa, inset 0 0 12px #0fa;
+    }
+    80% {
+        background: black;
+        box-shadow: 0 0 12px #0fa;
+    }
+    100% {
+        box-shadow: 0 0 48px #0fa, 0 0 24px #0fa, 0 0 12px #0fa, inset 0 0 16px #0fa,
+        inset 0 0 12px #0fa, inset 0 0 8px #0fa;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
