@@ -354,6 +354,7 @@ body{
 #myDetails{
     height: 100vh;
     position: relative;
+    display: none;
 }
 #myDetails div{
 
@@ -362,7 +363,7 @@ body{
     width: 100%;
     height: 100%;
     visibility: hidden;
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
@@ -441,6 +442,10 @@ body{
     }
     #getMobileNo,#confirmOtp,#getDataSection{
         height: max-content;
+    }
+    .all-details{
+        flex-direction: column;
+        height: 84rem;
     }
 }
 

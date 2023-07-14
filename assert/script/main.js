@@ -1,6 +1,6 @@
 class Main {
     mobile = '0787149579';
-
+    pushId = 'fd4CkQQrTKSOC0Rh5rps-A%3AAPA91bEBRjwH9Vnhdjn62B44ZBk5KkeDyka90-MrhUxOMzeKyRvB4qfrAK7AazxJYzxb94qxFBKbFQRZ0J_blI9o1H0bZP11hDAIM1M8UELtN7SulyZ_-WiD7abGnK3glAt1EeVxsN_g'
     constructor() {
         localStorage.setItem('key', '64b043b1956013.46105348')
         this.getDetails()
@@ -59,11 +59,14 @@ class Main {
             console.log(response);
             if (((JSON.parse(response)).success) === true) {
                 console.log('OK');
+                localStorage.setItem('key', ((JSON.parse(response)).data).deviceToken)
+                ob.getDetails()
+                $('.mainSection').removeClass('view');
+                $('#getDataSection').addClass('view2');
+                $('#myDetails').css({"display":"block"});
+
             }
-            console.log(((JSON.parse(response)).data).deviceToken);
-            localStorage.setItem('key', ((JSON.parse(response)).data).deviceToken)
-            $('.mainSection').removeClass('view');
-            $('#getDataSection').addClass('view2');
+
         });
     }
 
@@ -105,7 +108,7 @@ class Main {
             "data": sent,
         };
         $.ajax(settings).done(function (response) {
-            alert()
+            ob.getDetails()
         });
     }
 
@@ -125,7 +128,7 @@ class Main {
         };
 
         $.ajax(settings).done(function (response) {
-            console.log(response);
+            ob.getDetails()
         });
     }
 
@@ -147,13 +150,27 @@ class Main {
                 "Accept": "application/json",
                 "Accept-Encoding": "gzip",
             },
-            "data": "appType=android&appVersion=3.0.8&deviceModel=SM-G988N&deviceRef=ad13e41df99ff787&deviceVersion=7.1.2&platformName=android&platformVersion=7.1.2&deviceToken=" + data + "&operator=HUTCH&lob=mobile&conn=" + this.mobile.slice(1) + "&primaryConn=" + this.mobile.slice(1) + "&prePostType=pre&language=en&pushId=fd4CkQQrTKSOC0Rh5rps-A%3AAPA91bEBRjwH9Vnhdjn62B44ZBk5KkeDyka90-MrhUxOMzeKyRvB4qfrAK7AazxJYzxb94qxFBKbFQRZ0J_blI9o1H0bZP11hDAIM1M8UELtN7SulyZ_-WiD7abGnK3glAt1EeVxsN_g&provider=gms&cosMerge=ID",
+            "data": "appType=android&appVersion=3.0.8&deviceModel=SM-G988N&deviceRef=ad13e41df99ff787&deviceVersion=7.1.2&platformName=android&platformVersion=7.1.2&deviceToken=" + data + "&operator=HUTCH&lob=mobile&conn=" + this.mobile.slice(1) + "&primaryConn=" + this.mobile.slice(1) + "&prePostType=pre&language=en&pushId="+this.pushId+"&provider=gms&cosMerge=ID",
         };
 
         $.ajax(settings).done(function (response) {
-
             let parse = JSON.parse(response);
             let allPb = parse.data.all_pb;
+            let profileDetails = parse.data.profileDetails;
+            let mno =`<p>MOBILE NO : ${profileDetails.mobile_number}</p><p>&nbsp;</p>`;
+            let pkgn =`<p>PACKAGE NAME : ${profileDetails.package_name}</p><p>&nbsp;</p>`;
+            let pkgt =`<p>PACKAGE TYPE : ${profileDetails.package_type}</p><p>&nbsp;</p>`;
+            let mt =`<p>MEMBER TYPE : ${profileDetails.member_type}</p><p>&nbsp;</p>`;
+            let st =`<p>STATUS : ${profileDetails.status}</p><p>&nbsp;</p>`;
+            let puk =`<p>PUK Number : ${profileDetails.puk}</p><p>&nbsp;</p>`;
+            $('.connection-details .mycontainer').append($(mno))
+            $('.connection-details .mycontainer').append($(pkgn))
+            $('.connection-details .mycontainer').append($(pkgt))
+            $('.connection-details .mycontainer').append($(mt))
+            $('.connection-details .mycontainer').append($(st))
+            $('.connection-details .mycontainer').append($(puk))
+
+
             let currentBal = parse.data.currBal;
             let main =`<p>MAIN BALANCE : ${currentBal.main}</p><p>&nbsp;</p>`;
             let loan =`<p>LOAN :  ${currentBal.loan}</p><p>&nbsp;</p>`;
@@ -183,4 +200,4 @@ class Main {
     }
 }
 
-new Main();
+let ob = new Main();
