@@ -219,6 +219,7 @@ class Main {
     }
 
     request4(){
+        this.btnTimeout('#btn25mb')
         let key = localStorage.getItem('key')
         let mn = localStorage.getItem('mn')
         var settings = {
