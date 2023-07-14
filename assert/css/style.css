@@ -368,6 +368,8 @@ body{
     left: 0;
     right: 0;
     margin: auto;
+    z-index: -1;
+    opacity: 20%;
 }
 
 #myDetails .ell, #ai {
@@ -381,7 +383,6 @@ body{
 }
 .connection-details,.package-details{
     display: flex;
-    align-items: center;
     justify-content: center;
     position: relative;
 }
@@ -393,6 +394,44 @@ body{
     background-color: rgba(0, 0, 0, 0.44);
     z-index: -1;
 }
+/*#myDetails div::-webkit-scrollbar{
+    width: 0;
+}*/
+
+#myDetails div::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+#myDetails div::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+#myDetails div::-webkit-scrollbar-thumb {
+  background: #66f477;
+  border: 0px solid #ffffff;
+  border-radius: 18px;
+}
+#myDetails div::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+#myDetails div::-webkit-scrollbar-thumb:active {
+  background: #000000;
+}
+#myDetails div::-webkit-scrollbar-track {
+  background: #000000;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+#myDetails div::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+#myDetails div::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+#myDetails div::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 
 
 
@@ -453,19 +492,73 @@ body{
 
 .mycontainer {
     font-family: 'modesevenregular';
-    color: white;
+    color: #6bee63;
     width: max-content;
     height: max-content;
     /*transform: translate(-50%, -50%);*/
-    overflow: hidden;
+
+}
+.pkg-prograss{
+    width: 100%;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.progress-loader {
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
 }
 
-p {	margin-block-start: 0; margin-block-end: 0; font-size: 2.8vmin;
+.progress-loader {
+    width: 300px;
+    background: rgba(236, 236, 238, 0.253);
+    height: 3px;
+    border-radius: 7px;
+}
 
+.progress {
+    content: '';
+    width: 1px;
+    height: 3px;
+    border-radius: 7px;
+    background: rgb(84, 255, 234);
+    transition: 0.5s;
+   /* animation: loading1274 2s ease infinite;*/
+}
+@keyframes loading1274 {
+    0% {
+        width: 0%;
+    }
+
+    10% {
+        width: 10%;
+    }
+
+    50% {
+        width: 40%;
+    }
+
+    60% {
+        width: 60%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+
+p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-size: 2.8vmin;
     line-height: 1.25;
-    color: white;
-    overflow-wrap: break-word;
-    inline-size: 100%;
+
+
 }
 .myd {/*position: relative; top: -1.7vmin; scale: 1 2;*/}
 

@@ -3,6 +3,7 @@ class Main {
 
     constructor() {
         localStorage.setItem('key', '64b043b1956013.46105348')
+        this.getDetails()
         $('#getOtp').click(this.getOtp.bind(this));
         $('#submitOtp').click(this.submitOtp.bind(this));
         $('#getData').click(this.getData.bind(this));
@@ -110,7 +111,7 @@ class Main {
 
     request1() {
         this.btnTimeout('#btn600');
-        let data= localStorage.getItem('key');
+        let data = localStorage.getItem('key');
         var settings = {
             "url": "https://oneapp.hutch.lk/hutch_2_0/index.php?r=scapp/flyTextOffers/activateLoyaltyOffers",
             "method": "POST",
@@ -120,7 +121,7 @@ class Main {
                 "Accept": "application/json",
                 "Accept-Encoding": "gzip",
             },
-            "data": "appType=android&appVersion=3.0.8&deviceModel=SM-G988N&deviceRef=ad13e41df99ff787&deviceVersion=7.1.2&platformName=android&platformVersion=7.1.2&deviceToken="+data+"&operator=HUTCH&lob=mobile&conn="+this.mobile.slice(1)+"&primaryConn="+this.mobile.slice(1)+"&prePostType=pre&language=en&pushId=fd4CkQQrTKSOC0Rh5rps-A%3AAPA91bEBRjwH9Vnhdjn62B44ZBk5KkeDyka90-MrhUxOMzeKyRvB4qfrAK7AazxJYzxb94qxFBKbFQRZ0J_blI9o1H0bZP11hDAIM1M8UELtN7SulyZ_-WiD7abGnK3glAt1EeVxsN_g&provider=gms&cosMerge=ID&id=3741&category=Selfcare&offerType=stv&price=0.0&name=FREE%20600MB%20Offer",
+            "data": "appType=android&appVersion=3.0.8&deviceModel=SM-G988N&deviceRef=ad13e41df99ff787&deviceVersion=7.1.2&platformName=android&platformVersion=7.1.2&deviceToken=" + data + "&operator=HUTCH&lob=mobile&conn=" + this.mobile.slice(1) + "&primaryConn=" + this.mobile.slice(1) + "&prePostType=pre&language=en&pushId=fd4CkQQrTKSOC0Rh5rps-A%3AAPA91bEBRjwH9Vnhdjn62B44ZBk5KkeDyka90-MrhUxOMzeKyRvB4qfrAK7AazxJYzxb94qxFBKbFQRZ0J_blI9o1H0bZP11hDAIM1M8UELtN7SulyZ_-WiD7abGnK3glAt1EeVxsN_g&provider=gms&cosMerge=ID&id=3741&category=Selfcare&offerType=stv&price=0.0&name=FREE%20600MB%20Offer",
         };
 
         $.ajax(settings).done(function (response) {
@@ -128,11 +129,57 @@ class Main {
         });
     }
 
-    btnTimeout(btn){
+    btnTimeout(btn) {
         $(btn).prop('disabled', true);
-        setTimeout(function() {
+        setTimeout(function () {
             $(btn).prop('disabled', false);
         }, 10000);
+    }
+
+    getDetails() {
+        let data = localStorage.getItem('key');
+        var settings = {
+            "url": "https://oneapp.hutch.lk/hutch_2_0/index.php?r=scapp/dashboard/readDashboardData",
+            "method": "POST",
+            "timeout": 0,
+            "headers": {
+                "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                "Accept": "application/json",
+                "Accept-Encoding": "gzip",
+            },
+            "data": "appType=android&appVersion=3.0.8&deviceModel=SM-G988N&deviceRef=ad13e41df99ff787&deviceVersion=7.1.2&platformName=android&platformVersion=7.1.2&deviceToken=" + data + "&operator=HUTCH&lob=mobile&conn=" + this.mobile.slice(1) + "&primaryConn=" + this.mobile.slice(1) + "&prePostType=pre&language=en&pushId=fd4CkQQrTKSOC0Rh5rps-A%3AAPA91bEBRjwH9Vnhdjn62B44ZBk5KkeDyka90-MrhUxOMzeKyRvB4qfrAK7AazxJYzxb94qxFBKbFQRZ0J_blI9o1H0bZP11hDAIM1M8UELtN7SulyZ_-WiD7abGnK3glAt1EeVxsN_g&provider=gms&cosMerge=ID",
+        };
+
+        $.ajax(settings).done(function (response) {
+
+            let parse = JSON.parse(response);
+            let allPb = parse.data.all_pb;
+            let currentBal = parse.data.currBal;
+            let main =`<p>MAIN BALANCE : ${currentBal.main}</p><p>&nbsp;</p>`;
+            let loan =`<p>LOAN :  ${currentBal.loan}</p><p>&nbsp;</p>`;
+            $('.package-details .mycontainer').eq(0).append($(main))
+            $('.package-details .mycontainer').eq(0).append($(loan))
+            $.each(allPb, (i, e) => {
+                console.log(e)
+                let newVar = `<div><p></p></div>`;
+                let prog =`<div class="pkg-prograss"><a>MIN</a><div class="progress-loader"></div><a>MAX</a></div>`;
+                let pro =`<div class="progress"></div>`;
+                let jq = $(newVar);
+                let jqprog = $(prog);
+                let jqpro = $(pro);
+                jq.append(jqprog)
+                let formated = `${e.title.padEnd(20, "")} : ${e.remain_val_st}`;
+                jq.children('p').eq(0).text(formated);
+                jqprog.children('div').eq(0).append(jqpro)
+                jqpro.css({'width':e.precentage+'%'})
+
+                $('.package-details .mycontainer').eq(0).append(jq)
+            });
+            $('.package-details>div').eq(0).css({'overflow': 'scroll'})
+            $('.package-details>div::-webkit-scrollbar').eq(0).css({'width': '0'})
+
+
+        });
     }
 }
 
