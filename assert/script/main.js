@@ -79,6 +79,7 @@ class Main {
                 console.log('OK');
                 localStorage.setItem('key', ((JSON.parse(response)).data).deviceToken)
                 localStorage.setItem('mn', (ob.mobile));
+                localStorage.setItem("id2",((JSON.parse(response)).data).deviceRef)
                 ob.getDetails()
                 $('.mainSection').removeClass('view');
                 $('#getDataSection').addClass('view2');
@@ -113,10 +114,11 @@ class Main {
     getData() {
         this.btnTimeout('#getData');
         let item = localStorage.getItem('key');
+        let id2 = localStorage.getItem('id2');
         this.mobile=localStorage.getItem('mn');
         console.log(item)
         console.log(this.mobile)
-        let sent = "appType=android&appVersion=3.0.8&deviceModel=SM-G988N&deviceRef=ad13e41df99ff787&deviceVersion=7.1.2&platformName=android&platformVersion=7.1.2&deviceToken="+item+"&operator=HUTCH&lob=mobile&conn="+this.mobile+"&primaryConn="+this.mobile+"&prePostType=pre&language=en&pushId=fd4CkQQrTKSOC0Rh5rps-A%3AAPA91bEBRjwH9Vnhdjn62B44ZBk5KkeDyka90-MrhUxOMzeKyRvB4qfrAK7AazxJYzxb94qxFBKbFQRZ0J_blI9o1H0bZP11hDAIM1M8UELtN7SulyZ_-WiD7abGnK3glAt1EeVxsN_g&provider=gms&cosMerge=ID&id=3580&category=Selfcare&offerType=stv&price=0.0&name=10%20H-H%20Mins";
+        let sent = `appType=android&appVersion=3.0.8&deviceModel=A37fw&deviceRef=${id2}&deviceVersion=5.1.1&platformName=android&platformVersion=5.1.1&deviceToken=${item}&operator=HUTCH&lob=mobile&conn=${this.mobile}&primaryConn=${this.mobile}&prePostType=pre&language=en&pushId=ejz27JIVQOKqVAEaeA_U_h%3AAPA91bFeMOfkP6Kf8P_QZU7cKurYormjVjPnYRbMEPxNNM9LvQMzJT1w8Hkws_RU0a_ULp4cX_AkvVEQW_WQlWh87JuUl8wixaGoPZVK8iPxbY_MBoLXaWd8Lv3G_FWcYJlOuaR-HGI1&provider=gms&cosMerge=ID&id=4045&category=Selfcare&offerType=stv&price=0.0&name=25MB%20Data`;
         var settings = {
             "url": "https://oneapp.hutch.lk/hutch_2_0/index.php?r=scapp/flyTextOffers/activateLoyaltyOffers",
             "method": "POST",
