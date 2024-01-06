@@ -291,6 +291,7 @@ body{
     transition: all 0.3s ease;
     position: relative;
     display: inline-block;
+    font-size: 17px;
 }
 .inner>a>button {
     position: relative;
@@ -346,7 +347,7 @@ body{
     cursor: wait;
 }
 #getDataSection{
-    height: 100vh;
+    height: max-content;
     justify-content: center;
     display: none;
     padding: 70px 10% 0;
@@ -715,7 +716,8 @@ p {
      left: -16px;
  }
 .credit{
-    position: absolute;
+    position: relative;
+    padding-top: 10px;
     bottom: 10px;
     left: 0;
     right: 0;
@@ -767,4 +769,7 @@ p {
     100% {
         transform: rotate(360deg);
     }
+}
+.scroll{
+    overflow-y: scroll;
 }
