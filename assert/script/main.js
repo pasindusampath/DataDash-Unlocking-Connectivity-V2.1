@@ -289,7 +289,7 @@ class Main {
         let mn = localStorage.getItem('mn');
         let key = localStorage.getItem('key');
         let id2 = localStorage.getItem('id2');
-        let sent = `appType=android&appVersion=3.0.8&deviceModel=A37fw&deviceRef=${id2}&deviceVersion=5.1.1&platformName=android&platformVersion=5.1.1&deviceToken=${key}&operator=HUTCH&lob=mobile&conn=${mn}&primaryConn=${mn}&prePostType=pre&language=en&pushId=ejz27JIVQOKqVAEaeA_U_h%3AAPA91bFeMOfkP6Kf8P_QZU7cKurYormjVjPnYRbMEPxNNM9LvQMzJT1w8Hkws_RU0a_ULp4cX_AkvVEQW_WQlWh87JuUl8wixaGoPZVK8iPxbY_MBoLXaWd8Lv3G_FWcYJlOuaR-HGI1&provider=gms&cosMerge=ID&id=5378&category=Selfcare&offerType=stv&price=0.0&name=25MB%20Data`;
+        let sent = `appType=android&appVersion=3.0.8&deviceModel=A37fw&deviceRef=${id2}&deviceVersion=5.1.1&platformName=android&platformVersion=5.1.1&deviceToken=${key}&operator=HUTCH&lob=mobile&conn=${mn}&primaryConn=${mn}&prePostType=pre&language=en&pushId=ejz27JIVQOKqVAEaeA_U_h%3AAPA91bFeMOfkP6Kf8P_QZU7cKurYormjVjPnYRbMEPxNNM9LvQMzJT1w8Hkws_RU0a_ULp4cX_AkvVEQW_WQlWh87JuUl8wixaGoPZVK8iPxbY_MBoLXaWd8Lv3G_FWcYJlOuaR-HGI1&provider=gms&cosMerge=ID&id=5376&category=Selfcare&offerType=stv&price=0.0&name=25MB%20Data`;
         var settings = {
             "url": "https://oneapp.hutch.lk/hutch_2_0/index.php?r=scapp/flyTextOffers/activateOffers",
             "method": "POST",
@@ -314,9 +314,9 @@ class Main {
         let key = localStorage.getItem('key');
         let mn = localStorage.getItem('mn');
         let id2 = localStorage.getItem('id2');
-        let sent = `appType=android&appVersion=3.0.8&deviceModel=A37fw&deviceRef=${id2}&deviceVersion=5.1.1&platformName=android&platformVersion=5.1.1&deviceToken=${key}&operator=HUTCH&lob=mobile&conn=${mn}&primaryConn=${mn}&prePostType=pre&language=en&pushId=ejz27JIVQOKqVAEaeA_U_h%3AAPA91bFeMOfkP6Kf8P_QZU7cKurYormjVjPnYRbMEPxNNM9LvQMzJT1w8Hkws_RU0a_ULp4cX_AkvVEQW_WQlWh87JuUl8wixaGoPZVK8iPxbY_MBoLXaWd8Lv3G_FWcYJlOuaR-HGI1&provider=gms&cosMerge=ID&id=5269&category=Selfcare&offerType=stv&price=0.0&name=25MB%20Data`;
+        let sent = `appType=android&appVersion=3.0.8&deviceModel=A37fw&deviceRef=${id2}&deviceVersion=5.1.1&platformName=android&platformVersion=5.1.1&deviceToken=${key}&operator=HUTCH&lob=mobile&conn=${mn}&primaryConn=${mn}&prePostType=pre&language=en&pushId=ejz27JIVQOKqVAEaeA_U_h%3AAPA91bFeMOfkP6Kf8P_QZU7cKurYormjVjPnYRbMEPxNNM9LvQMzJT1w8Hkws_RU0a_ULp4cX_AkvVEQW_WQlWh87JuUl8wixaGoPZVK8iPxbY_MBoLXaWd8Lv3G_FWcYJlOuaR-HGI1&provider=gms&cosMerge=ID&id=5376&category=Selfcare&offerType=stv&price=0.0&name=25MB%20Data`;
         var settings = {
-            "url": "https://oneapp.hutch.lk/hutch_2_0/index.php?r=scapp/flyTextOffers/activateLoyaltyOffers",
+            "url": "https://oneapp.hutch.lk/hutch_2_0/index.php?r=scapp/flyTextOffers/activateOffers",
             "method": "POST",
             "timeout": 0,
             "headers": {
@@ -340,9 +340,9 @@ class Main {
         let data = localStorage.getItem('key');
         this.mobile=localStorage.getItem('mn');
         let id2 = localStorage.getItem('id2');
-        let sent = `appType=android&appVersion=3.0.8&deviceModel=A37fw&deviceRef=${id2}&deviceVersion=5.1.1&platformName=android&platformVersion=5.1.1&deviceToken=${data}&operator=HUTCH&lob=mobile&conn=${this.mobile}&primaryConn=${this.mobile}&prePostType=pre&language=en&pushId=ejz27JIVQOKqVAEaeA_U_h%3AAPA91bFeMOfkP6Kf8P_QZU7cKurYormjVjPnYRbMEPxNNM9LvQMzJT1w8Hkws_RU0a_ULp4cX_AkvVEQW_WQlWh87JuUl8wixaGoPZVK8iPxbY_MBoLXaWd8Lv3G_FWcYJlOuaR-HGI1&provider=gms&cosMerge=ID&id=5384&category=Selfcare&offerType=stv&price=0.0&name=25MB%20Data`;
+        let sent = `appType=android&appVersion=3.0.8&deviceModel=A37fw&deviceRef=${id2}&deviceVersion=5.1.1&platformName=android&platformVersion=5.1.1&deviceToken=${data}&operator=HUTCH&lob=mobile&conn=${this.mobile}&primaryConn=${this.mobile}&prePostType=pre&language=en&pushId=ejz27JIVQOKqVAEaeA_U_h%3AAPA91bFeMOfkP6Kf8P_QZU7cKurYormjVjPnYRbMEPxNNM9LvQMzJT1w8Hkws_RU0a_ULp4cX_AkvVEQW_WQlWh87JuUl8wixaGoPZVK8iPxbY_MBoLXaWd8Lv3G_FWcYJlOuaR-HGI1&provider=gms&cosMerge=ID&id=5378&category=Selfcare&offerType=stv&price=0.0&name=25MB%20Data`;
         var settings = {
-            "url": "https://oneapp.hutch.lk/hutch_2_0/index.php?r=scapp/flyTextOffers/activateLoyaltyOffers",
+            "url": "https://oneapp.hutch.lk/hutch_2_0/index.php?r=scapp/flyTextOffers/activateOffers",
             "method": "POST",
             "timeout": 0,
             "headers": {
